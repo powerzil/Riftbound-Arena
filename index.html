@@ -107,6 +107,238 @@ h3{font-size:17px;margin-bottom:5px}
   -webkit-overflow-scrolling:touch;
 }
 
+
+/* --- V7 title screen: classic pixel-adventure menu structure, original assets --- */
+.titleScreen{padding:0;background:#080510;overflow:hidden}
+.titleSky{position:absolute;inset:0;overflow:hidden;background:
+  radial-gradient(circle at 73% 17%,rgba(182,149,255,.20),transparent 16%),
+  radial-gradient(circle at 30% 36%,rgba(91,55,150,.25),transparent 28%),
+  linear-gradient(180deg,#10091f 0%,#17102d 42%,#090713 100%)}
+.titleSky::before{content:"";position:absolute;inset:0;background-image:
+  radial-gradient(circle,#fff 0 1px,transparent 1.5px),
+  radial-gradient(circle,#cfc1ff 0 1px,transparent 1.5px);
+ background-size:71px 71px,113px 113px;background-position:10px 7px,37px 41px;opacity:.42;animation:starDrift 18s linear infinite}
+.titleSky::after{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:38%;
+ background:
+  linear-gradient(155deg,transparent 0 42%,#100b1c 43% 57%,transparent 58%) 0 100%/190px 130px repeat-x,
+  linear-gradient(25deg,transparent 0 43%,#0b0812 44% 59%,transparent 60%) 40px 100%/230px 170px repeat-x;
+ opacity:.95}
+@keyframes starDrift{from{transform:translateY(0)}to{transform:translateY(71px)}}
+.titleMoon{position:absolute;right:16%;top:11%;width:74px;height:74px;border-radius:50%;background:#d8cdfd;box-shadow:0 0 45px #9d7cff80,0 0 90px #6e49b955}
+.titleMoon::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#b6a9df55;left:14px;top:18px;box-shadow:28px 18px 0 #b6a9df45,18px 39px 0 3px #b6a9df35}
+.titleHorizon{position:absolute;left:0;right:0;bottom:21%;height:20%;background:linear-gradient(180deg,transparent,#5d3b8122 38%,#24153299 100%);filter:blur(1px)}
+.titleMist{position:absolute;left:-25%;width:150%;height:100px;border-radius:50%;background:rgba(148,111,194,.07);filter:blur(18px);animation:mistMove 11s ease-in-out infinite alternate}
+.mistOne{bottom:22%}.mistTwo{bottom:8%;animation-duration:15s;animation-direction:alternate-reverse}
+@keyframes mistMove{from{transform:translateX(-5%)}to{transform:translateX(5%)}}
+.titleTorch{position:absolute;bottom:16%;width:7px;height:74px;background:#4c3425;box-shadow:0 0 0 2px #1b1320}
+.titleTorch::before{content:"";position:absolute;left:50%;top:-16px;transform:translateX(-50%);width:13px;height:24px;border-radius:60% 40% 55% 45%;background:#ffb447;box-shadow:0 0 18px #ff7b32,0 0 44px #9c49d870;animation:menuFlame .26s ease-in-out infinite alternate}
+.titleTorch::after{content:"";position:absolute;left:50%;top:-9px;transform:translateX(-50%);width:6px;height:14px;border-radius:50%;background:#fff1a3}
+.torchLeft{left:11%}.torchRight{right:11%}
+@keyframes menuFlame{from{transform:translateX(-50%) scale(.92) rotate(-3deg)}to{transform:translateX(-50%) scale(1.08) rotate(3deg)}}
+.titleContent{position:relative;z-index:3;width:min(92%,430px);height:100%;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 0}
+.gameLogo{text-align:center;filter:drop-shadow(0 7px 0 #140c20) drop-shadow(0 0 18px #8d62c955);margin-bottom:28px;user-select:none}
+.logoRift,.logoArena{display:block;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;letter-spacing:.06em;line-height:.82}
+.logoRift{font-size:clamp(48px,12vw,72px);color:#efe8ff;-webkit-text-stroke:2px #5c3d82;text-shadow:0 3px #9773c4}
+.logoArena{font-size:clamp(29px,8vw,44px);color:#ffcf7b;-webkit-text-stroke:1px #6b3f35;letter-spacing:.18em;margin-top:9px}
+.titleButtons{width:min(330px,86vw);display:grid;gap:8px}
+.titleBtn{min-height:46px;border:1px solid #6f5b8d;border-radius:5px;background:
+ linear-gradient(180deg,#33294b 0%,#241b39 48%,#1b142b 52%,#2a2040 100%);
+ color:#f2edff;font-weight:900;font-size:15px;letter-spacing:.08em;text-shadow:0 2px #000;box-shadow:inset 0 1px #ffffff18,0 4px 0 #0d0915;cursor:pointer}
+.titleBtn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.18)}
+.titleBtn:active:not(:disabled){transform:translateY(3px);box-shadow:inset 0 1px #ffffff18,0 1px 0 #0d0915}
+.titleBtn small{font-size:9px;color:#ad9fc1;margin-left:6px}
+.titleBtn.disabled{opacity:.47;cursor:not-allowed}
+.titleFooter{margin-top:18px;color:#786b91;font-size:10px;letter-spacing:.08em}
+.profileCard{max-width:480px}
+.profileSlot{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;background:#161f2e;border:1px solid #33445b;border-radius:13px;padding:10px}
+.profilePortrait{width:64px;height:64px;border-radius:10px;background:radial-gradient(circle at 50% 35%,#6f5a99,#16101f 70%);border:1px solid #695587;display:flex;align-items:center;justify-content:center;font-size:30px}
+.profileInfo strong{display:block}.profileInfo span{display:block;color:#90a0b8;font-size:11px;margin-top:3px}
+.profileActions{display:grid;gap:5px}.miniBtn{border:1px solid #41516a;background:#202c3e;color:#eaf1ff;border-radius:8px;padding:7px 9px;font-size:10px;font-weight:800;cursor:pointer}
+.miniBtn.delete{color:#ffaaaa}
+.nameInput{width:100%;border:1px solid #3a4b63;border-radius:10px;background:#0b121c;color:#eef5ff;padding:12px;font:inherit;outline:none}
+.nameInput:focus{border-color:#8b6cc3;box-shadow:0 0 0 2px #8b6cc333}
+
+
+/* V8: robust menu scrolling on GitHub Pages/mobile */
+html,body{min-height:100%;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+body{min-height:100dvh}
+.overlay{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-y:contain;
+  touch-action:pan-y;
+  align-items:flex-start;
+}
+.overlay>.card{margin:auto 0;flex:0 0 auto}
+.titleScreen{overflow-y:auto!important;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+.titleContent{height:auto!important;min-height:max(100%,720px);padding-top:34px;padding-bottom:34px}
+#profileOverlay .card,#createProfileOverlay .card,#dungeonOverlay .card,#settingsOverlay .card,
+#hubOverlay .card,#pauseOverlay .card,#deadOverlay .card,#skillOverlay .card,#contractOverlay .card{
+  max-height:none!important;overflow:visible!important
+}
+
+/* V8: per-character screen layout */
+body.layout-mobile #shell{width:min(100%,600px);min-height:100dvh}
+body.layout-desktop{align-items:center;min-height:100dvh}
+body.layout-desktop #shell{
+  width:min(96vw,1180px);height:min(92dvh,880px);min-height:700px;
+  border:1px solid #343946;border-radius:16px;overflow:hidden;margin:2dvh auto
+}
+body.layout-desktop #gameWrap{min-height:0;flex:1 1 auto}
+body.layout-desktop #hud{flex:0 0 auto}
+body.layout-desktop #joystick{opacity:.32;transform:scale(.84);transform-origin:left bottom}
+body.layout-desktop #hint{font-size:13px}
+@media(max-width:760px){
+ body.layout-desktop #shell{width:100%;height:auto;min-height:100dvh;border:0;border-radius:0;margin:0}
+}
+.layoutPicker{margin-top:14px}
+.layoutChoices{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:7px}
+.layoutChoice{
+ border:1px solid #3c4553;background:#151a21;color:#dfe5ef;border-radius:10px;
+ padding:11px;cursor:pointer;text-align:left
+}
+.layoutChoice strong{display:block;font-size:13px}
+.layoutChoice span{display:block;color:#929aaa;font-size:10.5px;margin-top:4px;line-height:1.3}
+.layoutChoice.selected{border-color:#c9baff;box-shadow:0 0 0 2px rgba(201,186,255,.20);background:#1d2029}
+
+/* V8 dungeon HUD: neutral stone + light lavender only */
+#hud{
+ background:linear-gradient(180deg,#171a1f,#101216);
+ border-bottom:1px solid #c9baff;
+ box-shadow:0 3px 16px rgba(0,0,0,.42);
+ font-family:Georgia,'Times New Roman',serif
+}
+.stat,.meterLabel{
+ font-family:Georgia,'Times New Roman',serif;
+ font-variant:small-caps;
+ letter-spacing:.07em
+}
+.stat{color:#a8aab1}
+.stat b{color:#d8ceff;text-shadow:0 1px 0 #000}
+.meterCard{background:linear-gradient(180deg,#181b20,#111318);border-color:#343841}
+.meterLabel{color:#b6b8c0}
+.bar{background:#08090c;border-color:#30343c}
+#xpFill,#timerFill{background:#c9baff}
+#timerCard.smoke #timerFill{background:#9bcf87}
+#arenaTimerBox,#arenaHealthBox{
+ background:rgba(15,17,21,.91);
+ border-color:rgba(201,186,255,.48);
+ font-family:Georgia,'Times New Roman',serif
+}
+#arenaTimer{color:#d8ceff}
+#arenaTimerBox.poison{border-color:#99c982;background:rgba(16,28,18,.92)}
+#arenaTimerBox.poison #arenaTimer{color:#b7e8a3}
+#dungeonBanner{
+ background:rgba(15,17,21,.91);
+ border-color:rgba(201,186,255,.42);
+ color:#d8ceff;
+ font-family:Georgia,'Times New Roman',serif;
+ letter-spacing:.04em
+}
+
+/* --- V9 title menu: stone dungeon gateway --- */
+.titleScreen{
+ background:#0c0d0f!important;
+ font-family:Georgia,'Times New Roman',serif
+}
+.titleSky{
+ position:absolute;inset:0;overflow:hidden;
+ background:
+   radial-gradient(ellipse at 50% 67%,rgba(255,160,67,.12),transparent 25%),
+   linear-gradient(180deg,#101114 0%,#16171a 55%,#090a0c 100%)!important
+}
+.titleSky::before{
+ content:"";position:absolute;inset:0;opacity:.65!important;
+ background:
+   linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/100% 52px,
+   linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px) 0 0/74px 100%!important;
+ animation:none!important
+}
+.titleSky::after{
+ content:"";position:absolute!important;left:0!important;right:0!important;bottom:0!important;height:29%!important;
+ background:
+   linear-gradient(180deg,transparent,rgba(0,0,0,.65)),
+   repeating-linear-gradient(90deg,#151619 0 72px,#111215 72px 76px)!important;
+ opacity:1!important
+}
+.titleMoon,.titleHorizon{display:none!important}
+.menuArch{
+ position:absolute;left:50%;top:8%;transform:translateX(-50%);
+ width:min(82%,640px);height:70%;
+ border:22px solid #24262b;border-bottom:0;border-radius:310px 310px 0 0;
+ box-shadow:inset 0 0 0 3px #3b3d43,inset 0 0 40px #000,0 0 30px #000;
+ background:linear-gradient(180deg,rgba(5,6,8,.74),rgba(12,12,14,.86))
+}
+.menuArch::before{
+ content:"";position:absolute;inset:14px;border:1px solid rgba(211,202,239,.14);
+ border-bottom:0;border-radius:280px 280px 0 0
+}
+.menuRune{
+ position:absolute;color:#d8ceff;opacity:.28;font-size:25px;
+ text-shadow:0 0 16px rgba(216,206,255,.38);animation:runePulse 3s ease-in-out infinite alternate
+}
+.runeOne{left:18%;top:24%}.runeTwo{right:18%;top:34%;animation-delay:-1.2s}
+@keyframes runePulse{from{opacity:.16;transform:scale(.94)}to{opacity:.42;transform:scale(1.06)}}
+.titleMist{background:rgba(210,210,215,.035)!important;filter:blur(22px)!important}
+.titleTorch{
+ bottom:17%!important;background:#5b3a23!important;border:1px solid #21160f;
+ box-shadow:0 5px 12px #000!important
+}
+.titleTorch::before{
+ background:#ffc05b!important;
+ box-shadow:0 0 18px #ff8d36,0 0 55px rgba(255,126,45,.28)!important
+}
+.titleContent{
+ width:min(92%,510px)!important;
+ justify-content:flex-start!important;
+ padding-top:clamp(58px,10vh,105px)!important
+}
+.gameLogo{
+ margin-bottom:12px!important;
+ filter:drop-shadow(0 4px 0 #050506)!important
+}
+.logoRift,.logoArena{
+ font-family:Georgia,'Times New Roman',serif!important;
+ font-weight:900;
+ letter-spacing:.08em!important;
+ -webkit-text-stroke:0!important
+}
+.logoRift{
+ color:#e5e3e8!important;
+ font-size:clamp(44px,10vw,68px)!important;
+ text-shadow:0 2px #5c5e66,0 5px #111!important
+}
+.logoArena{
+ color:#d8ceff!important;
+ font-size:clamp(22px,5vw,34px)!important;
+ letter-spacing:.28em!important;
+ text-shadow:0 2px #343039!important
+}
+.mainProfileBadge{
+ min-height:25px;margin:0 0 19px;padding:6px 12px;border-radius:999px;
+ background:rgba(12,13,15,.82);border:1px solid #3f4148;
+ color:#bcbec5;font-size:11px;letter-spacing:.03em
+}
+.mainProfileBadge strong{color:#e7e8ec}
+.titleButtons{width:min(360px,88vw)!important;gap:7px!important}
+.titleBtn{
+ min-height:45px!important;border:1px solid #4b4e55!important;border-radius:3px!important;
+ background:linear-gradient(180deg,#282a2f,#1a1b1f)!important;
+ color:#e8e8eb!important;
+ font-family:Georgia,'Times New Roman',serif!important;
+ font-size:14px!important;letter-spacing:.10em!important;
+ box-shadow:inset 0 1px rgba(255,255,255,.07),0 3px 0 #08090a!important;
+ text-shadow:0 1px #000!important
+}
+.titleBtn:hover:not(:disabled){
+ border-color:#b8addc!important;
+ background:linear-gradient(180deg,#303238,#202126)!important;
+ filter:none!important
+}
+.titleBtn small{color:#8f9096!important}
+.titleFooter{color:#62646a!important;font-family:Georgia,'Times New Roman',serif}
+
 </style>
 </head>
 <body>
@@ -159,18 +391,101 @@ h3{font-size:17px;margin-bottom:5px}
     <div id="joystick" aria-label="movement joystick"><div id="stick"></div></div>
     <div id="hint">MOVE to dodge<br><strong>STOP to auto-fire</strong><br>TAP an enemy to target<br>WASD / arrows</div>
 
-    <div id="startOverlay" class="overlay show">
-      <div class="card">
-        <div class="pill">RIFTBOUND ARENA</div>
-        <h1>RIFTBOUND ARENA</h1>
-        <p>Fast top-down combat where playing dangerously makes you stronger. Clear before the timer expires and poisonous gas floods the room.</p>
-        <h3>Choose a fighter</h3>
+    <div id="startOverlay" class="overlay show titleScreen">
+      <div class="titleSky" aria-hidden="true">
+        <div class="menuArch"></div>
+        <div class="menuRune runeOne">✦</div>
+        <div class="menuRune runeTwo">◇</div>
+        <div class="titleMist mistOne"></div>
+        <div class="titleMist mistTwo"></div>
+        <div class="titleTorch torchLeft"></div>
+        <div class="titleTorch torchRight"></div>
+      </div>
+      <div class="titleContent">
+        <div class="gameLogo">
+          <span class="logoRift">RIFTBOUND</span>
+          <span class="logoArena">ARENA</span>
+        </div>
+        <div id="mainProfileBadge" class="mainProfileBadge"></div>
+        <div class="titleButtons">
+          <button id="singleBtn" class="titleBtn">SINGLEPLAYER</button>
+          <button id="multiBtn" class="titleBtn disabled" disabled>MULTIPLAYER <small>COMING LATER</small></button>
+          <button id="charactersBtn" class="titleBtn">CHARACTERS</button>
+          <button id="bestiaryBtn" class="titleBtn">BESTIARY</button>
+          <button id="cosmeticsBtn" class="titleBtn">COSMETICS</button>
+          <button id="settingsBtn" class="titleBtn">SETTINGS</button>
+        </div>
+        <div class="titleFooter">Riftbound Arena • Prototype V9</div>
+      </div>
+    </div>
+
+    <div id="profileOverlay" class="overlay">
+      <div class="card profileCard">
+        <div class="pill">CHARACTERS</div>
+        <h2>Select Character</h2>
+        <p class="small">Each character slot has its own dungeon progress, coins, unlocks and cosmetics.</p>
+        <div id="profileList" class="stack"></div>
+        <button id="profileBackBtn" class="btn secondary" style="margin-top:12px">BACK</button>
+      </div>
+    </div>
+
+    <div id="createProfileOverlay" class="overlay">
+      <div class="card profileCard">
+        <div class="pill">NEW CHARACTER</div>
+        <h2>Create Character</h2>
+        <label class="small" for="profileNameInput">Name</label>
+        <input id="profileNameInput" class="nameInput" maxlength="16" placeholder="Wanderer">
+        <h3 style="margin-top:14px">Choose a fighter</h3>
         <div id="charGrid" class="grid2"></div>
-        <div style="height:12px"></div>
-        <div id="dungeonSelect" class="stack" style="margin-top:10px;margin-bottom:10px"></div>
-        <button id="playBtn" class="btn">ENTER SELECTED DUNGEON</button>
-        <button id="hubBtn" class="btn secondary" style="margin-top:10px">COSMETICS & BESTIARY</button>
-        <p class="small" style="margin-top:10px">Original low-poly modeled characters/enemies rendered directly in the game.</p>
+        <div class="layoutPicker">
+          <div class="small">SCREEN LAYOUT</div>
+          <div class="layoutChoices">
+            <button id="mobileLayoutChoice" class="layoutChoice selected" type="button">
+              <strong>📱 Mobile</strong><span>Portrait arena with larger touch controls.</span>
+            </button>
+            <button id="desktopLayoutChoice" class="layoutChoice" type="button">
+              <strong>🖥️ Computer</strong><span>Wide arena designed for keyboard play.</span>
+            </button>
+          </div>
+        </div>
+        <div class="grid2" style="margin-top:12px">
+          <button id="createProfileCancelBtn" class="btn secondary">CANCEL</button>
+          <button id="createProfileBtn" class="btn">CREATE</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="dungeonOverlay" class="overlay">
+      <div class="card profileCard">
+        <div class="pill">SINGLEPLAYER</div>
+        <h2 id="dungeonProfileTitle">Choose Dungeon</h2>
+        <p class="small">Three bosses per dungeon. Completed dungeons stay completed for this character.</p>
+        <div id="dungeonSelect" class="stack" style="margin:12px 0"></div>
+        <div class="grid2">
+          <button id="dungeonBackBtn" class="btn secondary">BACK</button>
+          <button id="playBtn" class="btn">ENTER DUNGEON</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="settingsOverlay" class="overlay">
+      <div class="card profileCard">
+        <div class="pill">SETTINGS</div>
+        <h2>Settings</h2>
+        <div class="choice" style="cursor:default">
+          <strong>Audio</strong><span>Use the speaker button during gameplay to mute/unmute.</span>
+        </div>
+        <div class="choice" style="cursor:default">
+          <strong>Controls</strong><span>Mobile: joystick. Desktop: WASD / arrow keys. Stop moving to fire.</span>
+        </div>
+        <div class="choice" style="cursor:default">
+          <strong>Screen Layout</strong><span id="currentLayoutText">Current layout</span>
+          <div class="layoutChoices" style="margin-top:9px">
+            <button id="settingsMobileLayout" class="layoutChoice" type="button"><strong>📱 Mobile</strong><span>Portrait</span></button>
+            <button id="settingsDesktopLayout" class="layoutChoice" type="button"><strong>🖥️ Computer</strong><span>Widescreen</span></button>
+          </div>
+        </div>
+        <button id="settingsBackBtn" class="btn secondary" style="margin-top:12px">BACK</button>
       </div>
     </div>
 
@@ -243,7 +558,12 @@ const roomLabel=$('roomLabel'),coinLabel=$('coinLabel'),levelLabel=$('levelLabel
  deadOverlay=$('deadOverlay'),skillList=$('skillList'),contractList=$('contractList'),
  charGrid=$('charGrid'),joystick=$('joystick'),stick=$('stick'),
  pauseOverlay=$('pauseOverlay'),pauseBtn=$('pauseBtn'),muteBtn=$('muteBtn'),flashLayer=$('flashLayer'),
- hubOverlay=$('hubOverlay'),hubTabs=$('hubTabs'),hubPanel=$('hubPanel'),hubBank=$('hubBank'),dungeonSelect=$('dungeonSelect'),dungeonBanner=$('dungeonBanner');
+ hubOverlay=$('hubOverlay'),hubTabs=$('hubTabs'),hubPanel=$('hubPanel'),hubBank=$('hubBank'),dungeonSelect=$('dungeonSelect'),dungeonBanner=$('dungeonBanner'),
+ profileOverlay=$('profileOverlay'),createProfileOverlay=$('createProfileOverlay'),profileList=$('profileList'),profileNameInput=$('profileNameInput'),
+ dungeonOverlay=$('dungeonOverlay'),dungeonProfileTitle=$('dungeonProfileTitle'),settingsOverlay=$('settingsOverlay'),
+ mobileLayoutChoice=$('mobileLayoutChoice'),desktopLayoutChoice=$('desktopLayoutChoice'),
+ settingsMobileLayout=$('settingsMobileLayout'),settingsDesktopLayout=$('settingsDesktopLayout'),
+ currentLayoutText=$('currentLayoutText'),mainProfileBadge=$('mainProfileBadge');
 
 // ---------- lightweight synth audio (no external assets) ----------
 const audio=(()=>{
@@ -302,13 +622,81 @@ let W=0,H=0,ratio=1;
 function resize(){const r=wrap.getBoundingClientRect();W=r.width;H=r.height;ratio=Math.min(2,devicePixelRatio||1);cvs.width=W*ratio;cvs.height=H*ratio;ctx.setTransform(ratio,0,0,ratio,0,0)}
 addEventListener('resize',resize);resize();
 
-const SAVE='riftbound_v3';
-let save=JSON.parse(localStorage.getItem(SAVE)||'{}');
-save.best=save.best||0;save.bank=save.bank||0;save.selected=save.selected||'Ranger';save.unlockedDungeon=save.unlockedDungeon||1;save.completedDungeons=save.completedDungeons||[];save.selectedDungeon=save.selectedDungeon||1;
-save.unlocked=save.unlocked||{outfits:['default'],hats:['none'],trails:['none'],pets:['none']};
-save.equipped=save.equipped||{outfit:'default',hat:'none',trail:'none',pet:'none'};
-save.seen=save.seen||{};
-function persist(){localStorage.setItem(SAVE,JSON.stringify(save))}
+const LEGACY_SAVE='riftbound_v3';
+const SAVE='riftbound_character_profiles_v1';
+
+function freshProfile(name='Wanderer',fighter='Ranger'){
+ return {
+  name, best:0, bank:0, selected:fighter, displayMode:'mobile',
+  unlockedDungeon:1, completedDungeons:[], selectedDungeon:1,
+  unlocked:{outfits:['default'],hats:['none'],trails:['none'],pets:['none']},
+  equipped:{outfit:'default',hat:'none',trail:'none',pet:'none'},
+  seen:{}
+ };
+}
+function normalizeProfile(p){
+ p=p||freshProfile();
+ p.name=p.name||'Wanderer';p.best=p.best||0;p.bank=p.bank||0;p.selected=p.selected||'Ranger';p.displayMode=(p.displayMode==='desktop'?'desktop':'mobile');
+ p.unlockedDungeon=p.unlockedDungeon||1;p.completedDungeons=p.completedDungeons||[];p.selectedDungeon=p.selectedDungeon||1;
+ p.unlocked=p.unlocked||{outfits:['default'],hats:['none'],trails:['none'],pets:['none']};
+ p.equipped=p.equipped||{outfit:'default',hat:'none',trail:'none',pet:'none'};
+ p.seen=p.seen||{};
+ return p;
+}
+let rootSave=JSON.parse(localStorage.getItem(SAVE)||'{}');
+if(!Array.isArray(rootSave.profiles)){
+ let legacy=null;
+ try{legacy=JSON.parse(localStorage.getItem(LEGACY_SAVE)||'null')}catch(e){}
+ rootSave={activeProfile:0,legacyMigrated:true,profiles:[legacy?normalizeProfile({...legacy,name:legacy.name||'Legacy Hero'}):freshProfile('Wanderer','Ranger'),null,null,null]};
+}
+if(!rootSave.legacyMigrated)rootSave.legacyMigrated=true;
+// Never re-import the old pre-profile save after migration.
+try{localStorage.removeItem(LEGACY_SAVE)}catch(e){}
+while(rootSave.profiles.length<4)rootSave.profiles.push(null);
+let requestedActive=Number.isInteger(rootSave.activeProfile)?rootSave.activeProfile:0;
+if(requestedActive<0||requestedActive>3||!rootSave.profiles[requestedActive])requestedActive=rootSave.profiles.findIndex(Boolean);
+let activeProfileIndex=requestedActive;
+let save=activeProfileIndex>=0?normalizeProfile(rootSave.profiles[activeProfileIndex]):freshProfile('Wanderer','Ranger');
+if(activeProfileIndex>=0)rootSave.profiles[activeProfileIndex]=save;
+
+function persist(){
+ rootSave.activeProfile=activeProfileIndex;
+ if(activeProfileIndex>=0&&rootSave.profiles[activeProfileIndex])rootSave.profiles[activeProfileIndex]=save;
+ localStorage.setItem(SAVE,JSON.stringify(rootSave));
+}
+
+function applyLayoutMode(mode){
+ const desktop=mode==='desktop';
+ document.body.classList.toggle('layout-desktop',desktop);
+ document.body.classList.toggle('layout-mobile',!desktop);
+ requestAnimationFrame(()=>resize());
+}
+function updateLayoutChoiceUI(mode){
+ const desktop=mode==='desktop';
+ mobileLayoutChoice?.classList.toggle('selected',!desktop);
+ desktopLayoutChoice?.classList.toggle('selected',desktop);
+ settingsMobileLayout?.classList.toggle('selected',!desktop);
+ settingsDesktopLayout?.classList.toggle('selected',desktop);
+ if(currentLayoutText)currentLayoutText.textContent=desktop?'Current: Computer / widescreen':'Current: Mobile / portrait';
+}
+function setCurrentProfileLayout(mode){
+ if(activeProfileIndex<0)return;
+ save.displayMode=mode==='desktop'?'desktop':'mobile';
+ persist();applyLayoutMode(save.displayMode);updateLayoutChoiceUI(save.displayMode);
+}
+
+function switchProfile(index){
+ if(!rootSave.profiles[index])return false;
+ activeProfileIndex=index;
+ save=normalizeProfile(rootSave.profiles[index]);
+ selected=save.selected||'Ranger';
+ dungeon=save.selectedDungeon||1;
+ persist();
+ applyLayoutMode(save.displayMode);updateLayoutChoiceUI(save.displayMode);
+ renderChars();
+ renderDungeonSelect();updateMainProfileBadge();
+ return true;
+}
 persist();
 
 // ---------- cosmetics catalog ----------
@@ -397,15 +785,84 @@ const CHARACTERS={
  Necromancer:{desc:'Kills at high Danger can summon temporary wraiths.',weapon:'orb',hp:100,speed:200,damage:17,fireRate:.62,passive:'necro'}
 };
 let selected=save.selected in CHARACTERS?save.selected:'Ranger';
+let creatingProfileIndex=null,creatingDisplayMode='mobile';
 
+function updateMainProfileBadge(){
+ if(!mainProfileBadge)return;
+ if(activeProfileIndex<0||!rootSave.profiles[activeProfileIndex]){
+  mainProfileBadge.textContent='No character selected';
+  return;
+ }
+ mainProfileBadge.innerHTML=`${fighterIcon(save.selected)} <strong>${save.name}</strong> · ${Math.floor(save.bank)} coins · Dungeon ${save.unlockedDungeon}`;
+}
+
+function fighterIcon(name){
+ return name==='Ranger'?'🏹':name==='Assassin'?'🗡️':name==='Mage'?'🔮':name==='Engineer'?'⚙️':'☠️';
+}
 function renderChars(){
  charGrid.innerHTML='';
  Object.entries(CHARACTERS).forEach(([name,c])=>{
   const b=document.createElement('button');b.className='char'+(name===selected?' selected':'');
-  b.innerHTML=`<strong>${name}</strong><span>${c.desc}</span>`;
-  b.addEventListener('click',()=>{selected=name;save.selected=name;persist();renderChars()});
+  b.innerHTML=`<strong>${fighterIcon(name)} ${name}</strong><span>${c.desc}</span>`;
+  b.addEventListener('click',()=>{selected=name;renderChars()});
   charGrid.appendChild(b)
  })
+}
+function renderProfiles(){
+ updateMainProfileBadge();profileList.innerHTML='';
+ rootSave.profiles.forEach((p,i)=>{
+  if(p){
+   p=normalizeProfile(p);
+   const d=document.createElement('div');d.className='profileSlot';
+   const portrait=document.createElement('div');portrait.className='profilePortrait';portrait.textContent=fighterIcon(p.selected);
+   const info=document.createElement('div');info.className='profileInfo';
+   info.innerHTML=`<strong>${p.name}</strong><span>${p.selected} • ${p.displayMode==='desktop'?'🖥️ Computer':'📱 Mobile'} • Dungeon ${p.unlockedDungeon}/${DUNGEONS.length}</span><span>${Math.floor(p.bank)} coins • ${p.completedDungeons.length} dungeon${p.completedDungeons.length===1?'':'s'} completed</span>`;
+   const actions=document.createElement('div');actions.className='profileActions';
+   const play=document.createElement('button');play.className='miniBtn';play.textContent='SELECT';
+   play.addEventListener('click',()=>{switchProfile(i);profileOverlay.classList.remove('show');openDungeonMenu()});
+   const del=document.createElement('button');del.className='miniBtn delete';del.textContent='DELETE';
+   del.addEventListener('click',()=>{
+    if(del.dataset.confirming!=='yes'){
+      del.dataset.confirming='yes';del.textContent='CONFIRM?';
+      setTimeout(()=>{if(del.isConnected){del.dataset.confirming='';del.textContent='DELETE'}},2200);
+      return
+    }
+    rootSave.profiles[i]=null;
+    rootSave.legacyMigrated=true;
+    try{localStorage.removeItem(LEGACY_SAVE)}catch(e){}
+    if(i===activeProfileIndex){
+      const next=rootSave.profiles.findIndex(Boolean);
+      activeProfileIndex=next;
+      if(next>=0){
+        save=normalizeProfile(rootSave.profiles[next]);selected=save.selected;dungeon=save.selectedDungeon||1;
+        applyLayoutMode(save.displayMode);
+      }else{
+        save=freshProfile('Wanderer','Ranger');selected='Ranger';dungeon=1;
+        applyLayoutMode(window.innerWidth>=850?'desktop':'mobile');
+      }
+    }
+    persist();renderProfiles()
+   });
+   actions.append(play,del);d.append(portrait,info,actions);profileList.appendChild(d)
+  }else{
+   const b=document.createElement('button');b.className='choice';b.innerHTML='<strong>＋ Create Character</strong><span>Empty character slot</span>';
+   b.addEventListener('click',()=>openCreateProfile(i));profileList.appendChild(b)
+  }
+ });
+}
+function openProfiles(){
+ renderProfiles();startOverlay.classList.remove('show');profileOverlay.classList.add('show')
+}
+function openCreateProfile(i){
+ creatingProfileIndex=i;profileNameInput.value='';selected='Ranger';
+ creatingDisplayMode=window.innerWidth>=850?'desktop':'mobile';
+ updateLayoutChoiceUI(creatingDisplayMode);renderChars();
+ profileOverlay.classList.remove('show');createProfileOverlay.classList.add('show');setTimeout(()=>profileNameInput.focus(),50)
+}
+function openDungeonMenu(){
+ renderDungeonSelect();
+ dungeonProfileTitle.textContent=`${save.name} — Choose Dungeon`;
+ profileOverlay.classList.remove('show');startOverlay.classList.remove('show');dungeonOverlay.classList.add('show')
 }
 renderChars();
 
@@ -454,7 +911,7 @@ function renderHub(){
  const catalogMap={outfits:OUTFITS,hats:HATS,trails:TRAILS,pets:PETS},slotMap={outfits:'outfit',hats:'hat',trails:'trail',pets:'pet'},cat=catalogMap[hubTab],slot=slotMap[hubTab];
  cat.forEach(item=>{const owned=save.unlocked[hubTab].includes(item.id),equipped=save.equipped[slot]===item.id,b=document.createElement('button');b.className='choice previewCard'+(equipped?' equipped':'');const cv=document.createElement('canvas');cv.className='previewCanvas';const info=document.createElement('div');const status=owned?(equipped?'Equipped':'Owned — tap to equip'):('Cost: '+item.cost+' coins'+(save.bank<item.cost?' (not enough)':''));info.innerHTML=`<strong>${item.name}</strong><span>${status}</span>`;b.appendChild(cv);b.appendChild(info);b.addEventListener('click',()=>{if(owned){save.equipped[slot]=item.id;persist();renderHub()}else if(save.bank>=item.cost){save.bank-=item.cost;save.unlocked[hubTab].push(item.id);save.equipped[slot]=item.id;persist();renderHub()}});hubPanel.appendChild(b);drawPreview(cv,hubTab,item)})
 }
-$('hubBtn').addEventListener('click',()=>{hubReturnTo='start';renderHub();startOverlay.classList.remove('show');hubOverlay.classList.add('show')});
+// Main-menu Bestiary/Cosmetics buttons open the collection hub below.
 $('pauseHubBtn').addEventListener('click',()=>{hubReturnTo='pause';renderHub();pauseOverlay.classList.remove('show');hubOverlay.classList.add('show')});
 $('hubCloseBtn').addEventListener('click',()=>{hubOverlay.classList.remove('show');(hubReturnTo==='pause'?pauseOverlay:startOverlay).classList.add('show')});
 
@@ -494,12 +951,13 @@ const CONTRACTS=[
  {name:'No-Heal Contract',risk:'No healing after this room.',reward:'2.15× rewards',id:'noheal',mult:2.15}
 ];
 
-let running=false,paused=false,dead=false,last=performance.now(),room=1,coins=0,xp=0,level=1,xpNeed=11,revived=false;
+let running=false,paused=false,dead=false,last=performance.now(),room=1,coins=0,runCoinsBanked=0,xp=0,level=1,xpNeed=11,revived=false;
 let roomTimerMax=40,roomTimer=40,smoke=false,smokeClock=0,smokeOpacity=0;
 let danger=0,peakDanger=0,damageTakenRoom=0,roomStartAt=0,roomRewardMult=1,currentContract=CONTRACTS[0],noHealNext=false;
 let enemies=[],shots=[],enemyShots=[],particles=[],walls=[],gate=null,wraiths=[],chainFx=[],potions=[],chest=null,treasureRoomActive=false,manualTarget=null;
 let roomCleared=false,fireClock=0,keys={},joy={x:0,y:0,active:false},moveMagnitude=0,engineerHeat=0;
 let hero={};
+let devGodMode=false,devInfiniteDamage=false,devCheatBuffer='';
 
 function makeHero(){
  const c=CHARACTERS[selected];
@@ -507,6 +965,17 @@ function makeHero(){
  damage:c.damage,fireRate:c.fireRate,bulletSpeed:500,multishot:1,spread:.14,pierce:0,crit:.08,critMul:2,shield:0,dangerAmp:1,poisonVulnerability:1,projectileScale:1,
  lifesteal:0,chainChance:0,adrenaline:0};
 }
+function syncRunCoinsToBank(){
+ if(activeProfileIndex<0)return;
+ const whole=Math.floor(coins);
+ const delta=whole-runCoinsBanked;
+ if(delta>0){
+  save.bank+=delta;
+  runCoinsBanked=whole;
+  persist();updateMainProfileBadge();
+ }
+}
+
 function announce(t){msg.textContent=t;msg.style.opacity=1;clearTimeout(announce.t);announce.t=setTimeout(()=>msg.style.opacity=0,1050)}
 function ui(){
  roomLabel.textContent=room;coinLabel.textContent=Math.floor(coins);levelLabel.textContent=level;dungeonBanner.textContent=dungeonById(dungeon).name+' • Boss '+Math.min(3,Math.floor((room-1)/5)+1)+'/3';
@@ -522,8 +991,8 @@ function ui(){
  arenaTimerBox.classList.toggle('poison',smoke);
 }
 function resetRun(){
- running=true;paused=false;dead=false;dungeon=save.selectedDungeon||1;room=1;coins=0;xp=0;level=1;xpNeed=11;revived=false;danger=0;peakDanger=0;engineerHeat=0;noHealNext=false;
- hero=makeHero();startOverlay.classList.remove('show');deadOverlay.classList.remove('show');skillOverlay.classList.remove('show');contractOverlay.classList.remove('show');
+ running=true;paused=false;dead=false;dungeon=save.selectedDungeon||1;room=1;coins=0;runCoinsBanked=0;xp=0;level=1;xpNeed=11;revived=false;danger=0;peakDanger=0;engineerHeat=0;noHealNext=false;
+ save.selected=selected;persist();hero=makeHero();startOverlay.classList.remove('show');dungeonOverlay.classList.remove('show');deadOverlay.classList.remove('show');skillOverlay.classList.remove('show');contractOverlay.classList.remove('show');
  currentContract=CONTRACTS[0];buildRoom();ui();announce(selected.toUpperCase())
 }
 function buildWalls(){
@@ -594,6 +1063,12 @@ function spawnEnemy(type,x,y,kind){
     e.cd=e.cd||.5
  }
  if(currentContract.id==='blood')e.speed*=1.35;
+ // Never begin a room sitting on top of a wall.
+ for(let tries=0;tries<8&&obstacleCircle(e.x,e.y,e.r+18);tries++){
+  e.x=48+Math.random()*(W-96);
+  e.y=92+Math.random()*(Math.max(120,H*.56-92));
+ }
+ enforceEnemyWallClearance(e);
  enemies.push(e)
 }
 function obstacleCircle(x,y,r){
@@ -690,7 +1165,7 @@ function spawnExplosion(x,y,radius=70){
 }
 function killEnemy(e){
  const base=e.type==='boss'?13:1;
- coins+=base*roomRewardMult*(1+danger/250);
+ coins+=base*roomRewardMult*(1+danger/250);syncRunCoinsToBank();
  gainXP(e.type==='boss'?6:1);
  if(e.type==='splitter'){spawnEnemy('mini',e.x-12,e.y);spawnEnemy('mini',e.x+12,e.y)}
  if(e.type==='bomber'){
@@ -705,6 +1180,10 @@ function killEnemy(e){
  for(let i=0;i<10;i++)particles.push({x:e.x,y:e.y,vx:(Math.random()-.5)*130,vy:(Math.random()-.5)*130,life:.45})
 }
 function damageHero(n,source='hit'){
+ if(devGodMode){
+  if(source!=='smoke')floatText(hero.x,hero.y-32,'IMMUNE','#c9baff');
+  return
+ }
  if(hero.shield>0&&source!=='smoke'){hero.shield--;announce('BLOCKED');audio.crit();return}
  if(currentContract.id==='glass'&&source!=='smoke')n*=2;
  hero.hp-=n;damageTakenRoom+=n;danger=Math.min(100,danger+18);peakDanger=Math.max(peakDanger,danger);ui();
@@ -713,7 +1192,7 @@ function damageHero(n,source='hit'){
  if(hero.hp<=0)endRun()
 }
 function endRun(){
- if(dead)return;running=false;dead=true;paused=true;save.best=Math.max(save.best,room);save.bank+=Math.floor(coins);persist();
+ if(dead)return;running=false;dead=true;paused=true;save.best=Math.max(save.best,room);syncRunCoinsToBank();persist();
  $('deadTitle').textContent=`${dungeonById(dungeon).name} — ROOM ${room}`;
  $('deadInfo').innerHTML=`Character: <strong>${selected}</strong><br>Run coins: <strong>${Math.floor(coins)}</strong><br>Restart point: <strong>${dungeonById(dungeon).name}</strong><br>Best room: <strong>${save.best}</strong><br>Total bank: <strong>${save.bank}</strong>`;
  const rb=$('reviveBtn');rb.disabled=revived;rb.textContent=revived?'REVIVE USED':'WATCH AD (MOCK) — REVIVE';deadOverlay.classList.add('show')
@@ -739,7 +1218,7 @@ function completeRoom(){
  // Keep the performance-based reward bonus, but do NOT interrupt play with a rank screen.
  const g=roomGrade();
  roomRewardMult*=g.bonus;
- coins+=Math.max(1,Math.floor(room*g.bonus*currentContract.mult));
+ coins+=Math.max(1,Math.floor(room*g.bonus*currentContract.mult));syncRunCoinsToBank();
 
  announce('ROOM CLEAR');
  audio.clear();
@@ -748,8 +1227,28 @@ function completeRoom(){
 function nextRoom(){
  if(room>=15){
   if(!save.completedDungeons.includes(dungeon))save.completedDungeons.push(dungeon);
-  if(dungeon<DUNGEONS.length)save.unlockedDungeon=Math.max(save.unlockedDungeon,dungeon+1);
-  persist();running=false;paused=false;roomCleared=false;gate=null;doorHint.style.opacity=0;startOverlay.classList.add('show');announce('DUNGEON COMPLETE');renderDungeonSelect();return;
+  syncRunCoinsToBank();
+
+  if(dungeon<DUNGEONS.length){
+   save.unlockedDungeon=Math.max(save.unlockedDungeon,dungeon+1);
+   dungeon++;
+   save.selectedDungeon=dungeon;
+   persist();
+
+   room=1;roomCleared=false;gate=null;doorHint.style.opacity=0;
+   currentContract=CONTRACTS[0];noHealNext=false;
+   hero.hp=Math.min(hero.maxHp,hero.hp+Math.ceil(hero.maxHp*.35));
+   announce('DUNGEON COMPLETE — '+dungeonById(dungeon).name.toUpperCase());
+   buildRoom();ui();
+   return;
+  }
+
+  // Final dungeon: stay in the game flow, but show completion and allow the final gate loop to end cleanly.
+  persist();running=false;paused=false;roomCleared=false;gate=null;doorHint.style.opacity=0;
+  announce('ALL DUNGEONS COMPLETE');
+  renderDungeonSelect();renderProfiles();
+  dungeonOverlay.classList.add('show');
+  return;
  }
  room++;roomCleared=false;gate=null;doorHint.style.opacity=0;
  if(!noHealNext&&currentContract.id!=='noheal')hero.hp=Math.min(hero.maxHp,hero.hp+Math.ceil(hero.maxHp*.08));
@@ -763,6 +1262,93 @@ function projectileHitsWall(p){
  }
  return false;
 }
+function projectilePathHitsWall(p,x0,y0,x1,y1){
+ const dx=x1-x0,dy=y1-y0,dist=Math.hypot(dx,dy);
+ const stepSize=Math.max(2,Math.min(5,(p.r||4)*.7));
+ const steps=Math.max(1,Math.ceil(dist/stepSize));
+ for(let i=1;i<=steps;i++){
+   const t=i/steps,px=x0+dx*t,py=y0+dy*t;
+   for(const w of walls){
+     if(circleRectCollide(px,py,p.r||4,w))return true;
+   }
+ }
+ return false;
+}
+function moveEnemyCollisionSafe(e,oldX,oldY,didTeleport=false){
+ const targetX=e.x,targetY=e.y;
+ // True teleporters may pass THROUGH walls, but may never finish inside one.
+ if(didTeleport){
+   if(obstacleCircle(targetX,targetY,e.r)){e.x=oldX;e.y=oldY}
+   return;
+ }
+ e.x=oldX;e.y=oldY;
+ const dx=targetX-oldX,dy=targetY-oldY;
+ const dist=Math.hypot(dx,dy);
+ const stepSize=Math.max(2.5,Math.min(6,e.r*.35));
+ const steps=Math.max(1,Math.ceil(dist/stepSize));
+ const sx=dx/steps,sy=dy/steps;
+ for(let i=0;i<steps;i++){
+   const nx=e.x+sx;
+   if(!obstacleCircle(nx,e.y,e.r))e.x=nx;
+   const ny=e.y+sy;
+   if(!obstacleCircle(e.x,ny,e.r))e.y=ny;
+ }
+}
+
+function pushEnemyAwayFromWalls(e,dt){
+ const clearance=e.r+24;
+ let pushX=0,pushY=0;
+
+ for(const w of walls){
+  const cx=Math.max(w.x,Math.min(e.x,w.x+w.w));
+  const cy=Math.max(w.y,Math.min(e.y,w.y+w.h));
+  let dx=e.x-cx,dy=e.y-cy;
+  let dist=Math.hypot(dx,dy);
+
+  // If the center is aligned inside the rectangle on one axis, choose the nearest outward side.
+  if(dist<0.001){
+   const left=Math.abs(e.x-w.x),right=Math.abs((w.x+w.w)-e.x);
+   const top=Math.abs(e.y-w.y),bottom=Math.abs((w.y+w.h)-e.y);
+   const min=Math.min(left,right,top,bottom);
+   if(min===left){dx=-1;dy=0}
+   else if(min===right){dx=1;dy=0}
+   else if(min===top){dx=0;dy=-1}
+   else{dx=0;dy=1}
+   dist=1;
+  }
+
+  if(dist<clearance){
+   const strength=(clearance-dist)/clearance;
+   pushX+=(dx/dist)*strength;
+   pushY+=(dy/dist)*strength;
+  }
+ }
+
+ const mag=Math.hypot(pushX,pushY);
+ if(mag>0.001){
+  // Wall avoidance intentionally wins over chase AI when an enemy gets close.
+  const force=e.speed*2.4*dt;
+  e.x+=(pushX/mag)*force;
+  e.y+=(pushY/mag)*force;
+ }
+}
+
+function enforceEnemyWallClearance(e){
+ const pad=10;
+ for(const w of walls){
+  const left=w.x-e.r-pad,right=w.x+w.w+e.r+pad;
+  const top=w.y-e.r-pad,bottom=w.y+w.h+e.r+pad;
+  if(e.x>left&&e.x<right&&e.y>top&&e.y<bottom){
+   const dl=e.x-left,dr=right-e.x,dtp=e.y-top,db=bottom-e.y;
+   const m=Math.min(dl,dr,dtp,db);
+   if(m===dl)e.x=left;
+   else if(m===dr)e.x=right;
+   else if(m===dtp)e.y=top;
+   else e.y=bottom;
+  }
+ }
+}
+
 function heroHitCircles(){
  // These track the visible BODY only. Weapons, staff, bow, blades and shoulder width do not count.
  // Coordinates are relative to the model drawn in drawHeroModel().
@@ -813,10 +1399,20 @@ function update(dt){
  let dx=0,dy=0;if(keys.ArrowLeft||keys.a)dx-=1;if(keys.ArrowRight||keys.d)dx+=1;if(keys.ArrowUp||keys.w)dy-=1;if(keys.ArrowDown||keys.s)dy+=1;if(joy.active){dx=joy.x;dy=joy.y}
  const mag=Math.hypot(dx,dy);moveMagnitude=mag;
  if(mag>.05){
-  dx/=Math.max(1,mag);dy/=Math.max(1,mag);let nx=hero.x+dx*hero.speed*dt,ny=hero.y+dy*hero.speed*dt;
-  nx=Math.max(hero.r+16,Math.min(W-hero.r-16,nx));ny=Math.max(hero.r+58,Math.min(H-hero.r-22,ny));
-  let bx=false,by=false;for(const w of walls){if(circleRectCollide(nx,hero.y,heroMovementRadius(),w))bx=true;if(circleRectCollide(hero.x,ny,heroMovementRadius(),w))by=true}
-  if(!bx)hero.x=nx;if(!by)hero.y=ny
+  dx/=Math.max(1,mag);dy/=Math.max(1,mag);
+  const totalX=dx*hero.speed*dt,totalY=dy*hero.speed*dt;
+  const steps=Math.max(1,Math.ceil(Math.hypot(totalX,totalY)/4));
+  for(let i=0;i<steps;i++){
+    const sx=totalX/steps,sy=totalY/steps;
+    const nx=Math.max(hero.r+16,Math.min(W-hero.r-16,hero.x+sx));
+    const ny=Math.max(hero.r+58,Math.min(H-hero.r-22,hero.y+sy));
+    let bx=false,by=false;
+    for(const w of walls){
+      if(circleRectCollide(nx,hero.y,heroMovementRadius(),w))bx=true;
+      if(circleRectCollide(hero.x,ny,heroMovementRadius(),w))by=true;
+    }
+    if(!bx)hero.x=nx;if(!by)hero.y=ny;
+  }
  }
  updateDanger(dt);
  if(moveMagnitude>.1){
@@ -827,16 +1423,19 @@ function update(dt){
  fireClock-=dt;if(mag<.08&&fireClock<=0&&enemies.length)fireHero();
 
  for(const s of shots){
+  const ox=s.x,oy=s.y;
   s.x+=s.vx*dt;s.y+=s.vy*dt;s.life-=dt;
-  if(projectileHitsWall(s))s.life=-1;
+  if(projectilePathHitsWall(s,ox,oy,s.x,s.y))s.life=-1;
  }
  for(const b of enemyShots){
+  const ox=b.x,oy=b.y;
   b.x+=b.vx*dt;b.y+=b.vy*dt;
-  if(!b.wallPierce&&projectileHitsWall(b)){b.dead=true;continue;}
+  if(!b.wallPierce&&projectilePathHitsWall(b,ox,oy,b.x,b.y)){b.dead=true;continue;}
   const d=Math.hypot(b.x-hero.x,b.y-hero.y);
   if(!b.near&&d<34+b.r&&d>16+b.r){b.near=true;danger=Math.min(100,danger+7);peakDanger=Math.max(peakDanger,danger)}
  }
  for(const e of enemies){
+  const oldEX=e.x,oldEY=e.y;e.didTeleport=false;
   e.hurt=Math.max(0,e.hurt-dt);e.cd-=dt;const a=Math.atan2(hero.y-e.y,hero.x-e.x);
   if(['chaser','mini','splitter'].includes(e.type)){
    const nx=e.x+Math.cos(a)*e.speed*dt,ny=e.y+Math.sin(a)*e.speed*dt;
@@ -922,7 +1521,7 @@ function update(dt){
    } else if(['forge','colossus'].includes(kind)){
     if(e.cd<=0){for(let k=0;k<10;k++){const aa=k*Math.PI*2/10;enemyShots.push({x:e.x,y:e.y,vx:Math.cos(aa)*210,vy:Math.sin(aa)*210,r:7,damage:18+dungeon*2,near:false})}spawnExplosion(e.x,e.y,95);e.cd=1.65}
    } else if(['pyromancer','oracle','voidlord'].includes(kind)){
-    e.blinkCd-=dt;if(e.blinkCd<=0){e.x=60+Math.random()*(W-120);e.y=100+Math.random()*(H*.55);e.blinkCd=1.8}
+    e.blinkCd-=dt;if(e.blinkCd<=0){e.x=60+Math.random()*(W-120);e.y=100+Math.random()*(H*.55);e.didTeleport=true;e.blinkCd=1.8}
     if(e.cd<=0){const n=kind==='voidlord'?12:8;for(let k=0;k<n;k++){const aa=a+(k-(n-1)/2)*.18;enemyShots.push({x:e.x,y:e.y,vx:Math.cos(aa)*250,vy:Math.sin(aa)*250,r:6,damage:18+dungeon*2,near:false})}e.cd=.9}
    } else if(['warden','hivequeen'].includes(kind)){
     e.summonCd-=dt;if(e.summonCd<=0&&enemies.length<14){for(let k=0;k<3;k++)spawnEnemy(kind==='warden'?'stalker':'spore',e.x+(k-1)*24,e.y+18);e.summonCd=4.2}if(e.cd<=0){fireEnemy(e);e.cd=1.2}
@@ -930,6 +1529,9 @@ function update(dt){
     e.x+=Math.cos(a)*e.speed*dt;e.y+=Math.sin(a)*e.speed*dt;if(e.cd<=0){fireEnemy(e);e.cd=1.55}
    }
   }
+  pushEnemyAwayFromWalls(e,dt);
+  moveEnemyCollisionSafe(e,oldEX,oldEY,e.didTeleport);
+  enforceEnemyWallClearance(e);
   e.x=Math.max(e.r+14,Math.min(W-e.r-14,e.x));e.y=Math.max(e.r+60,Math.min(H-e.r-24,e.y));
   if(enemyTouchesHero(e)){
    let dmg=10;
@@ -946,13 +1548,14 @@ function update(dt){
   if(s.life<=0)continue;
   for(const e of enemies){
    if(Math.hypot(s.x-e.x,s.y-e.y)<s.r+e.r){
-    e.hp-=s.damage;e.hurt=.08;s.life=-1;if(s.pierce>0){s.pierce--;s.life=.7}
-    if(hero.lifesteal)hero.hp=Math.min(hero.maxHp,hero.hp+s.damage*hero.lifesteal);
-    if(s.crit){audio.crit();floatText(e.x,e.y-24,Math.round(s.damage),'#ffd166')}else audio.hit();
+    const dealt=devInfiniteDamage?1e12:s.damage;
+    e.hp-=dealt;e.hurt=.08;s.life=-1;if(s.pierce>0){s.pierce--;s.life=.7}
+    if(hero.lifesteal)hero.hp=Math.min(hero.maxHp,hero.hp+dealt*hero.lifesteal);
+    if(s.crit){audio.crit();floatText(e.x,e.y-24,devInfiniteDamage?'∞':Math.round(dealt),'#ffd166')}else audio.hit();
     if(hero.chainChance&&Math.random()<hero.chainChance){
      let chainTarget=null,bd=1e12;
      for(const o of enemies){if(o===e)continue;const d=(o.x-e.x)**2+(o.y-e.y)**2;if(d<220*220&&d<bd){bd=d;chainTarget=o}}
-     if(chainTarget){const cd=s.damage*.5;chainTarget.hp-=cd;chainTarget.hurt=.08;if(chainTarget.hp<=0)chainTarget.dead=true;
+     if(chainTarget){const cd=devInfiniteDamage?1e12:s.damage*.5;chainTarget.hp-=cd;chainTarget.hurt=.08;if(chainTarget.hp<=0)chainTarget.dead=true;
       chainFx.push({x1:e.x,y1:e.y,x2:chainTarget.x,y2:chainTarget.y,life:.15})}
     }
     if(e.hp<=0)e.dead=true;break
@@ -1024,6 +1627,12 @@ function drawDungeonBackdrop(){
  bg.addColorStop(1,'#060a10');
  ctx.fillStyle=bg;
  ctx.fillRect(0,0,W,H);
+ // Global Rift ambience: dark purple light underneath every dungeon theme.
+ const purpleWash=ctx.createRadialGradient(W*.48,H*.42,25,W*.48,H*.42,Math.max(W,H)*.72);
+ purpleWash.addColorStop(0,'rgba(105,62,160,.16)');
+ purpleWash.addColorStop(.55,'rgba(58,28,91,.10)');
+ purpleWash.addColorStop(1,'rgba(19,8,31,.16)');
+ ctx.fillStyle=purpleWash;ctx.fillRect(0,0,W,H);
  const theme=dungeonById(dungeon).theme;
  if(theme==='ember'){const rg=ctx.createRadialGradient(W*.5,H*.25,20,W*.5,H*.25,H*.8);rg.addColorStop(0,'rgba(208,80,35,.30)');rg.addColorStop(1,'rgba(45,8,5,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H)}
  else if(theme==='verdant'){ctx.fillStyle='rgba(35,91,52,.22)';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(94,160,96,.28)';ctx.lineWidth=5;for(let i=0;i<6;i++){ctx.beginPath();ctx.moveTo(i*97%W,0);ctx.bezierCurveTo(i*73%W,H*.3,(i*131)%W,H*.55,(i*59)%W,H);ctx.stroke()}}
@@ -1130,35 +1739,25 @@ function drawDungeonBackdrop(){
    ctx.fillRect(p.x-6,p.y+3,4,34);
  }
 
- // Torches with soft glow
- const torchY=105;
- for(const tx of [62,W-62]){
-   const glow=ctx.createRadialGradient(tx,torchY,2,tx,torchY,58);
-   glow.addColorStop(0,'rgba(255,185,88,.28)');
-   glow.addColorStop(1,'rgba(255,140,40,0)');
-   ctx.fillStyle=glow;
-   ctx.beginPath();
-   ctx.arc(tx,torchY,58,0,Math.PI*2);
-   ctx.fill();
+ // Torches with soft glow — denser, purple-tinted ambience
+ const torchPoints=[
+   {x:58,y:108},{x:W-58,y:108},
+   {x:36,y:H*.40},{x:W-36,y:H*.40},
+   {x:42,y:H*.69},{x:W-42,y:H*.69}
+ ];
+ for(let ti=0;ti<torchPoints.length;ti++){
+   const tx=torchPoints[ti].x,ty=torchPoints[ti].y;
+   const glow=ctx.createRadialGradient(tx,ty,2,tx,ty,72);
+   glow.addColorStop(0,'rgba(255,181,82,.34)');
+   glow.addColorStop(.42,'rgba(185,86,170,.14)');
+   glow.addColorStop(1,'rgba(105,54,170,0)');
+   ctx.fillStyle=glow;ctx.beginPath();ctx.arc(tx,ty,72,0,Math.PI*2);ctx.fill();
 
-   ctx.strokeStyle='#75512f';
-   ctx.lineWidth=4;
-   ctx.beginPath();
-   ctx.moveTo(tx,torchY+8);
-   ctx.lineTo(tx,torchY+26);
-   ctx.stroke();
-
-   const flicker=2+Math.sin(performance.now()*.012+tx)*1.8;
-   ctx.fillStyle='#ffce65';
-   ctx.beginPath();
-   ctx.ellipse(tx,torchY-flicker,5,9+flicker,0,0,Math.PI*2);
-   ctx.fill();
-   ctx.fillStyle='#ff7a3c';
-   ctx.beginPath();
-   ctx.ellipse(tx,torchY+1,3.5,6,0,0,Math.PI*2);
-   ctx.fill();
+   ctx.strokeStyle='#6d4930';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(tx,ty+7);ctx.lineTo(tx,ty+28);ctx.stroke();
+   const flicker=2+Math.sin(performance.now()*.013+ti*1.7)*2.2;
+   ctx.fillStyle='#ffca62';ctx.beginPath();ctx.ellipse(tx,ty-flicker,5.5,10+flicker,0,0,Math.PI*2);ctx.fill();
+   ctx.fillStyle='#ff7044';ctx.beginPath();ctx.ellipse(tx,ty+1,3.4,6.8,0,0,Math.PI*2);ctx.fill();
  }
-
  // Vignette
  const vg=ctx.createRadialGradient(W/2,H*.48,Math.min(W,H)*.18,W/2,H*.5,Math.max(W,H)*.72);
  vg.addColorStop(.35,'rgba(0,0,0,0)');
@@ -1356,6 +1955,21 @@ function draw(){
 }
 function loop(now){const dt=Math.min(.033,(now-last)/1000||0);last=now;update(dt);draw()}
 
+addEventListener('keydown',e=>{
+ const active=document.activeElement;
+ if(active&&(active.tagName==='INPUT'||active.tagName==='TEXTAREA'||active.isContentEditable))return;
+ if(/^[a-zA-Z]$/.test(e.key)){
+  devCheatBuffer=(devCheatBuffer+e.key.toLowerCase()).slice(-16);
+  if(devCheatBuffer.endsWith('heal')){
+   devGodMode=!devGodMode;devCheatBuffer='';
+   announce(devGodMode?'DEV: INVULNERABLE ON':'DEV: INVULNERABLE OFF')
+  }else if(devCheatBuffer.endsWith('damage')){
+   devInfiniteDamage=!devInfiniteDamage;devCheatBuffer='';
+   announce(devInfiniteDamage?'DEV: INFINITE DAMAGE ON':'DEV: INFINITE DAMAGE OFF')
+  }
+ }
+});
+
 addEventListener('keydown',e=>{keys[e.key]=true;if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))e.preventDefault()});
 addEventListener('keyup',e=>keys[e.key]=false);
 
@@ -1383,9 +1997,32 @@ cvs.addEventListener('pointerdown',e=>{
 });
 
 let manualPause=false;
+
+mobileLayoutChoice.addEventListener('click',()=>{creatingDisplayMode='mobile';updateLayoutChoiceUI('mobile')});
+desktopLayoutChoice.addEventListener('click',()=>{creatingDisplayMode='desktop';updateLayoutChoiceUI('desktop')});
+settingsMobileLayout.addEventListener('click',()=>setCurrentProfileLayout('mobile'));
+settingsDesktopLayout.addEventListener('click',()=>setCurrentProfileLayout('desktop'));
+
+$('singleBtn').addEventListener('click',openProfiles);
+$('charactersBtn').addEventListener('click',openProfiles);
+$('bestiaryBtn').addEventListener('click',()=>{hubTab='bestiary';hubReturnTo='start';renderHub();startOverlay.classList.remove('show');hubOverlay.classList.add('show')});
+$('cosmeticsBtn').addEventListener('click',()=>{hubTab='outfits';hubReturnTo='start';renderHub();startOverlay.classList.remove('show');hubOverlay.classList.add('show')});
+$('settingsBtn').addEventListener('click',()=>{updateLayoutChoiceUI(activeProfileIndex>=0?save.displayMode:(window.innerWidth>=850?'desktop':'mobile'));startOverlay.classList.remove('show');settingsOverlay.classList.add('show')});
+$('settingsBackBtn').addEventListener('click',()=>{settingsOverlay.classList.remove('show');startOverlay.classList.add('show')});
+
+$('profileBackBtn').addEventListener('click',()=>{profileOverlay.classList.remove('show');startOverlay.classList.add('show')});
+$('createProfileCancelBtn').addEventListener('click',()=>{createProfileOverlay.classList.remove('show');renderProfiles();profileOverlay.classList.add('show')});
+$('createProfileBtn').addEventListener('click',()=>{
+ const name=(profileNameInput.value||'Wanderer').trim().slice(0,16)||'Wanderer';
+ const p=freshProfile(name,selected);p.displayMode=creatingDisplayMode;
+ rootSave.profiles[creatingProfileIndex]=p;
+ activeProfileIndex=creatingProfileIndex;save=p;dungeon=1;persist();applyLayoutMode(save.displayMode);updateLayoutChoiceUI(save.displayMode);
+ createProfileOverlay.classList.remove('show');renderProfiles();profileOverlay.classList.add('show')
+});
+$('dungeonBackBtn').addEventListener('click',()=>{dungeonOverlay.classList.remove('show');renderProfiles();profileOverlay.classList.add('show')});
 $('playBtn').addEventListener('click',()=>{audio.unlock();dungeon=save.selectedDungeon||1;resetRun()});
 $('againBtn').addEventListener('click',resetRun);
-$('homeBtn').addEventListener('click',()=>{running=false;deadOverlay.classList.remove('show');startOverlay.classList.add('show')});
+$('homeBtn').addEventListener('click',()=>{running=false;deadOverlay.classList.remove('show');renderProfiles();startOverlay.classList.add('show')});
 $('reviveBtn').addEventListener('click',()=>{if(revived)return;revived=true;hero.hp=Math.ceil(hero.maxHp*.55);dead=false;running=true;paused=false;smoke=false;smokeOpacity=0;roomTimer=Math.max(10,roomTimerMax*.24);enemyShots=[];deadOverlay.classList.remove('show');announce('REVIVED');ui()});
 
 pauseBtn.addEventListener('click',()=>{
@@ -1394,10 +2031,13 @@ pauseBtn.addEventListener('click',()=>{
  manualPause=true;paused=true;pauseOverlay.classList.add('show')
 });
 $('resumeBtn').addEventListener('click',()=>{manualPause=false;paused=false;pauseOverlay.classList.remove('show')});
-$('pauseHomeBtn').addEventListener('click',()=>{manualPause=false;paused=false;running=false;pauseOverlay.classList.remove('show');startOverlay.classList.add('show')});
+$('pauseHomeBtn').addEventListener('click',()=>{manualPause=false;paused=false;running=false;pauseOverlay.classList.remove('show');renderProfiles();startOverlay.classList.add('show')});
 muteBtn.addEventListener('click',()=>{const on=!audio.isEnabled();audio.setEnabled(on);muteBtn.textContent=on?'🔊':'🔇'});
 
-hero=makeHero();dungeon=save.selectedDungeon||1;renderDungeonSelect();ui();requestAnimationFrame(loop)
+hero=makeHero();dungeon=save.selectedDungeon||1;
+applyLayoutMode(activeProfileIndex>=0?save.displayMode:(window.innerWidth>=850?'desktop':'mobile'));
+updateLayoutChoiceUI(activeProfileIndex>=0?save.displayMode:(window.innerWidth>=850?'desktop':'mobile'));
+renderProfiles();renderDungeonSelect();ui();requestAnimationFrame(loop)
 })();
 </script>
 </body>
